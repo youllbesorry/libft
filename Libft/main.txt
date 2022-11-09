@@ -1,0 +1,10 @@
+#include <string.h>
+#include <stdio.h>
+
+int main(void)
+{
+	char	test[] = "Hello world";
+	char	*str = strdup(test);
+
+	printf("%s\n", memset(str, 'a', 2));
+}
