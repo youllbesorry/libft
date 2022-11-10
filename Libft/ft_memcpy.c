@@ -6,24 +6,26 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 17:18:34 by bfaure            #+#    #+#             */
-/*   Updated: 2022/11/09 10:39:58 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2022/11/10 21:03:37 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	char	*str;
-	int		i;
+	size_t			i;
 
+	((char *)dest);
+	((char *)src);
 	i = 0;
 	while (i != n)
 	{
-		str = src;
+		*dest[i] = src[i];
+		dest++;
 		i++;
 	}
-	return (dst);
+	return (dest);
 }
 
 #include <string.h>
@@ -34,5 +36,6 @@ int main(void)
 	char	test[] = "Hello world";
 	char	*str = strdup(test);
 
-	printf("%s\n", memset(str, 'a', 2));
+	printf("%s\n", ft_memcpy(str, 'a', 1));
+	printf("%s\n", memcpy(str, 'a', 1));
 }
