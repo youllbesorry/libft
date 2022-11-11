@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <string.h>
-# include <stdio.h>
-# include "libft.h"
+#include <string.h>
+#include <stdio.h>
+#include "libft.h"
 
-int main(void)
+int	main(void)
 {
 	const char	src[50] = "test";
 	char		dest[50] = "hello world";

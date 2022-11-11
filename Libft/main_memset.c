@@ -6,15 +6,15 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 22:05:45 by bfaure            #+#    #+#             */
-/*   Updated: 2022/11/10 22:05:48 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2022/11/11 16:50:52 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <string.h>
-# include <stdio.h>
-# include "libft.h"
+#include <string.h>
+#include <stdio.h>
+#include "libft.h"
 
-int main(void)
+int	main(void)
 {
 	char	test[] = "Hello world";
 	char	*str = strdup(test);
