@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   main_strlcpy.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 17:18:34 by bfaure            #+#    #+#             */
-/*   Updated: 2022/11/11 14:35:47 by bfaure           ###   ########lyon.fr   */
+/*   Created: 2022/11/11 14:54:00 by bfaure            #+#    #+#             */
+/*   Updated: 2022/11/11 15:27:30 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+int	main(void)
 {
-	size_t	i;
+	char		dst[] = "test";
+	const char	src[] = "hello world";
+	char		dst1[] = "test";
+	const char	src1[] = "hello world";
 
-	i = 0;
-	while (i != n)
-	{
-		((char *)dest)[i] = ((const char *)src)[i];
-		i++;
-	}
-	return (dest);
+	printf("dst = %s src = %s\n", dst, src);
+	ft_strlcpy(dst, src, 4);
+	printf("dst = %s src = %s\n", dst, src);
+	printf("\n");
+	printf("dst1 = %s src1 = %s\n", dst1, src1);
+	strlcpy(dst1, src1, 4);
+	printf("dst1 = %s src1 = %s\n", dst1, src1);
 }

@@ -6,11 +6,11 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:55:25 by bfaure            #+#    #+#             */
-/*   Updated: 2022/11/10 23:44:31 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2022/11/11 14:35:45 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libft.h"
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

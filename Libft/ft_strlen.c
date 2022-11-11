@@ -6,16 +6,17 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 18:33:03 by bfaure            #+#    #+#             */
-/*   Updated: 2022/11/08 16:01:17 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2022/11/11 11:10:36 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(const char *str)
+#include "libft.h"
+
+size_t	ft_strlen(const char *str)
 {
 	int	i;
 
 	i = 0;
-
 	while (str[i] != '\0')
 		i++;
 	return (i);

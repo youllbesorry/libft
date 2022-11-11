@@ -10,24 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <string.h>
-# include <stdio.h>
-# include "libft.h"
+#include "libft.h"
 
-int main(void)
+int	main(void)
 {
 	const char	src[] = "test";
 	char		dest[] = "hello world";
+	const char	src1[] = "test";
+	char		dest1[] = "hello world";
 
-	/*printf("%s\n", ft_memmove(dest, src, 12));*/
-    printf("Before ft_memmove dest = %s, src = %s\n", dest, src);
-    ft_memmove(dest, src, 9);
-    printf("After ft_memmove dest = %s, src = %s\n", dest, src);  
-    printf("\n"); 
-    printf("Before memmove dest = %s, src = %s\n", dest, src);
-    memmove(dest, src, 9);
-    printf("After memmove dest = %s, src = %s\n", dest, src);
-
+	printf("Before ft_memmove dest = %s, src = %s\n", dest, src);
+	ft_memmove(dest, src, 4);
+	printf("After ft_memmove dest = %s, src = %s\n", dest, src);
+	printf("\n");
+	printf("Before memmove dest1 = %s, src1 = %s\n", dest1, src1);
+	memmove(dest1, src1, 4);
+	printf("After memmove dest1 = %s, src1 = %s\n", dest1, src1);
 	return (0);
-	
 }
