@@ -16,12 +16,11 @@ int	main(void)
 {
 	int	c;
 
-	c = 'a';
+	c = 'z';
 	printf ("C befor my toupper %i \n", c);
-	ft_toupper (c);
 	printf ("C after my toupper %i \n", ft_toupper (c));
 	printf ("\n");
-	c = 'a';
+	c = 'z';
 	printf ("C befor the original toupper %i \n", c);
 	printf ("C after the original toupper %i \n", toupper (c));
 }

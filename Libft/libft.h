@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:50:15 by bfaure            #+#    #+#             */
-/*   Updated: 2022/11/13 15:51:32 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2022/11/14 13:40:46 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,10 @@ int		ft_isdigit(int c);
 int		ft_isascii(int c);
 int		ft_isalpha(char c);
 int		ft_isalnum(int c);
+int		ft_toupper(int c);
+int		ft_tolower(int c);
+
+char	*ft_strchr(const char *s, int c);
+char	*ft_strrchr(const char *s, int c);
 
 #endif
