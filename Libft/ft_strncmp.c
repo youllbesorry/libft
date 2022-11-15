@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:14:47 by bfaure            #+#    #+#             */
-/*   Updated: 2022/11/15 11:55:50 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2022/11/15 14:37:29 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	int		b;
 
 	i = 0;
-	while ((s1[i] != '\0' || s2[i] != '\0') && (i != n))
+	while ((s1[i] != '\0' && s2[i] != '\0') && (i != n))
 	{
 		if (s1[i] != s2[i])
 		{

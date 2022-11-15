@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 11:51:06 by bfaure            #+#    #+#             */
-/*   Updated: 2022/11/14 14:47:42 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2022/11/15 18:34:59 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strrchr(const char *s, int c)
 	s1 = (char *) s;
 	len = ft_strlen(s1);
 	c = (char) c;
-	while (len)
+	while (len + 1)
 	{
 		if (s1[len] == c)
 			return (&s1[len]);

@@ -19,6 +19,6 @@ int	main(void)
 	const char	src[50] = "test";
 	char		dest[50] = "hello world";
 
-	printf("%s\n", ft_memcpy(dest, src, 12));
-	printf("%s\n", memcpy(dest, src, 12));
+	printf("%s\n", memcpy(((void *)0), ((void *)0), 3));
+	printf("%s\n", ft_memcpy(((void *)0), ((void *)0), 3));
 }

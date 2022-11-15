@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:55:25 by bfaure            #+#    #+#             */
-/*   Updated: 2022/11/11 14:35:45 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2022/11/15 17:33:44 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	ft_memset(s, '0', n);
+	if (n == 0)
+		return ;
+	ft_memset(s, 0, n);
 }
