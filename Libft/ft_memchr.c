@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 16:18:30 by bfaure            #+#    #+#             */
-/*   Updated: 2022/11/14 16:33:18 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2022/11/15 10:49:09 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 	c = (char) c;
 	s1 = (char *) s;
-	while (*s1 != '\0' && n != 0)
+	while (n != 0)
 	{
 		if (*s1 == c)
 			return (s1);
