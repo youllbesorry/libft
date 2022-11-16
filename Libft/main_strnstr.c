@@ -14,11 +14,13 @@
 
 int	main(void)
 {
-	char	str1[] = "hello, bonjour, bonjourno";
-	char	str2[] = "bonjour";
+	char *s1 = "MZIRIBMZIRIBMZE123";
+	char *s2 = "MZIRIBMZE";
+	size_t max = ft_strlen(s2);
 
-	printf ("We shearch %s in %s \n", str2, str1);
-	printf ("We find %s in %s \n", ft_strnstr(str1, str2, 25), str1);
-	printf ("Strnstr shearch %s in %s \n", str2, str2);
-	printf ("Strnstr find %s in %s \n", strnstr(str1, str2, 25), str1);
+	printf ("Strnstr shearch %s in %s \n", s2, s1);
+	printf ("Strnstr find %s in %s \n", strnstr(s1, s2, max), s1);
+	printf ("\n");
+	printf ("We shearch %s in %s \n", s2, s1);
+	printf ("We find %s in %s \n", ft_strnstr(s1, s2, max), s1);
 }

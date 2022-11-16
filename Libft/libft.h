@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:50:15 by bfaure            #+#    #+#             */
-/*   Updated: 2022/11/15 17:19:05 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2022/11/16 16:49:33 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <string.h>
 # include <stdio.h>
 # include <ctype.h>
+#include <xlocale.h>
 //# include <bsd/string.h>
 
 size_t	ft_strlen(const char *str);

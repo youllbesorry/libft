@@ -14,11 +14,19 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	while (*big != '\0')
+	size_t	i;
+	size_t	j;
+
+	if (little[0] == '\0' || len == 0)
+		return ((char *)big);
+	i = 0;
+	while (big[i] != '\0' && i < len)
 	{
-		if (ft_strncmp(big, little, len) == 0)
-			return ((char *)big);
-		big++;
-	}
+		j = 0;
+		while (little[j] == big[i + j] && (j + i < len))
+			if (little[++j] == '\0')
+				return ((char *)&big[i]);
+		i++;
+	}	
 	return (0);
 }
