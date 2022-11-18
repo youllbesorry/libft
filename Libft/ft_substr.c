@@ -12,18 +12,18 @@
 
 #include "libft.h"
 
-char	*ft_strstolcpy(char *dst, const char *src, unsigned int start, size_t len)
+char	*ft_strslcpy(char *dst, const char *src, unsigned int start, size_t len)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
-	while (src[start] != '\0' && start <= len)
+	while (src[start] != '\0' && i <= len - 1)
 	{
 		dst[i] = src[start];
 		i++;
 		start++;
 	}
-	dst[start] = '\0';
+	dst[i] = '\0';
 	return (dst);
 }
 
@@ -31,9 +31,18 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*dest;
 
-	dest = malloc(sizeof(dest) * (ft_strlen(s) + 1));
-	*dest = 0;
-	if (dest == NULL)
+	if (!s)
 		return (NULL);
-	return (ft_strstolcpy(dest, s, start, len));
+	if (start >= ft_strlen(s) || len == 0)
+	{
+		dest = malloc (sizeof(char));
+		if (!dest)
+			return (NULL);
+		*dest = 0;
+		return (dest);
+	}
+	dest = malloc(sizeof(char) * (len + 1));
+	if (!dest)
+		return (NULL);
+	return (ft_strslcpy(dest, s, start, len));
 }

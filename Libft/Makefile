@@ -6,7 +6,7 @@
 #    By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 15:23:52 by bfaure            #+#    #+#              #
-#    Updated: 2022/11/18 11:15:19 by bfaure           ###   ########lyon.fr    #
+#    Updated: 2022/11/18 17:34:42 by bfaure           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,8 +36,9 @@ SRCS = ft_isalpha.c\
 	ft_calloc.c\
 	ft_strdup.c\
 	ft_substr.c\
+	ft_strjoin.c\
 
-HEADER = Libft\libft.h
+HEADER = libft.h
 
 CFLAGS = -Wall -Wextra -Werror
 

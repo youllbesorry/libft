@@ -12,30 +12,50 @@
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+int	ft_overflow(int sign, long long int nb, const char *str)
 {
-	int	nb;
-	int	sign;
-	int	n;
+	if (nb != (nb * 10 + *str - '0') / 10)
+	{
+		if (sign == -1)
+			return (0);
+		if (sign == 1)
+			return (-1);
+	}
+	return (2);
+}
+
+int	ft_atoi(const char *str)
+{
+	long int	nb;
+	int			sign;
+	int			n;
 
 	nb = 0;
 	sign = 1;
 	n = 0;
-	while ((*nptr >= 9 && *nptr <= 13) || (*nptr == 32))
-		nptr++;
-	while (*nptr == '+' || *nptr == '-')
+	while ((*str >= 9 && *str <= 13) || (*str == 32))
+		str++;
+	while (*str == '+' || *str == '-')
 	{
-		n++;
-		if (n > 1)
+		if (n++ > 1)
 			return (0);
-		if (*nptr == '-')
+		if (*str == '-')
 			sign *= -1;
-		nptr++;
+		str++;
 	}
-	while (*nptr >= '0' && *nptr <= '9')
+	while (*str >= '0' && *str <= '9')
 	{
-		nb = nb * 10 + *nptr - '0';
-		nptr++;
+		if (ft_overflow(sign, nb, str) <= 0)
+			return (ft_overflow(sign, nb, str));
+		nb = nb * 10 + *str - '0';
+		str++;
 	}
 	return (nb * sign);
+}
+
+int	main(void)
+{
+	printf("%d", ft_atoi("-2147483649"));
+	printf("\n");
+	printf("%d", atoi("-2147483649"));
 }
