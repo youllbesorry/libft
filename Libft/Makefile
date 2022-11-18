@@ -6,7 +6,7 @@
 #    By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 15:23:52 by bfaure            #+#    #+#              #
-#    Updated: 2022/11/17 21:05:20 by bfaure           ###   ########lyon.fr    #
+#    Updated: 2022/11/18 11:15:19 by bfaure           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,8 @@ SRCS = ft_isalpha.c\
 	ft_toupper.c\
 	ft_atoi.c\
 	ft_calloc.c\
+	ft_strdup.c\
+	ft_substr.c\
 
 HEADER = Libft\libft.h
 

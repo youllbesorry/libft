@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:50:15 by bfaure            #+#    #+#             */
-/*   Updated: 2022/11/17 22:00:22 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2022/11/18 10:30:05 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,7 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strdup(const char *str);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+
 
 #endif

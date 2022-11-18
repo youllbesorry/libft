@@ -12,14 +12,18 @@
 
 #include "libft.h"
 
-char	*ft_strstolcpy(char *dst, const char src, unsigned int start, size_t len)
+char	*ft_strstolcpy(char *dst, const char *src, unsigned int start, size_t len)
 {
-	if (dst < src)
-		return (NULL);
+	size_t i;
+
 	i = 0;
-	while (src[start++ <= len] != '\0')
-		dst[i] = src[i];
-	dst[i] = '\0'
+	while (src[start] != '\0' && start <= len)
+	{
+		dst[i] = src[start];
+		i++;
+		start++;
+	}
+	dst[start] = '\0';
 	return (dst);
 }
 
