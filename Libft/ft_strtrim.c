@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 11:04:17 by bfaure            #+#    #+#             */
-/*   Updated: 2022/11/21 15:59:44 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2022/11/22 01:27:19 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	len = ft_strlen(s1);
 	while (ft_strchr(set, s1[i]))
 		i++;
-	while (ft_strchr(set, s1[len]))
+	while (ft_strchr(set, s1[len]) || len == 0)
 		len--;
-	str = ft_substr(s1, i, (len + 1) - i);
-	if (!str)
-		return (strdup(s1));
-	return (str);
+	return (ft_substr(s1, i, (len + 1) - i));
 }

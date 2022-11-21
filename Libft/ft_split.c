@@ -1,46 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 11:15:42 by bfaure            #+#    #+#             */
-/*   Updated: 2022/11/18 11:15:42 by bfaure           ###   ########lyon.fr   */
+/*   Created: 2022/11/21 18:26:09 by bfaure            #+#    #+#             */
+/*   Updated: 2022/11/21 18:26:09 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+size_t	number_of_sep(char const *s, char c)
 {
 	size_t	i;
 	size_t	j;
 
 	i = 0;
-	while (dest[i] != '\0')
-		i++;
 	j = 0;
-	while (src[j] != '\0')
+	while (s[i] != '\0')
 	{
-		dest[i] = src[j];
 		i++;
-		j++;
+		if (s[i] == c)
+			j++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (j + 1);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	**ft_split(char const *s, char c)
 {
-	char	*str;
+	size_t	i;
 
-	if (!s1 || !s2)
-		return (NULL);
-	str = malloc (sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
-	if (!str)
-		return (NULL);
-	*str = '\0';
-	ft_strcat(str, s1);
-	return (ft_strcat(str, s2));
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] == c)
+		{
+			while ()
+		}
+	}
 }
