@@ -30,7 +30,7 @@ size_t	tab_len(char const *s, char c)
 
 
 
-void	ft_free(char **strs, size_t i)
+void	*ft_free(char **strs, size_t i)
 {
 	size_t	j;
 
@@ -41,7 +41,7 @@ void	ft_free(char **strs, size_t i)
 		j++;
 	}
 	free(strs);
-	return ;
+	return (NULL);
 }
 
 size_t	ft_pass_sep(char const *s, char c, int n, size_t i)
@@ -53,8 +53,8 @@ size_t	ft_pass_sep(char const *s, char c, int n, size_t i)
 	{
 		while (s[i] == c)
 			i++;
+		return (i);
 	}
-	return (i);
 }
 
 char	**ft_alloc_2d_tab(char const *s, char c, char **strs, size_t len)
@@ -75,14 +75,10 @@ char	**ft_alloc_2d_tab(char const *s, char c, char **strs, size_t len)
 			j++;
 		else if (s[i] == c || s[i] == '\0')
 		{
-			strs[n] = malloc(sizeof(char) * (j + 1));
+			strs[n++] = malloc(sizeof(char) * (j + 1));
 			if (!strs)
-			{
-				ft_free(strs, i);
-				return (NULL);
-			}
+				return (ft_free(strs, i));
 			j = 0;
-			n++;
 			i = ft_pass_sep(s, c, 0, i);
 		}
 		i++;
@@ -112,14 +108,13 @@ char	**ft_split(char const *s, char c)
 			strs[j][n++] = s[i];
 		else
 		{
-			strs[j][n] = '\0';
+			strs[j++][n] = '\0';
 			n = 0;
-			j++;
 			i = ft_pass_sep(s, c, 0, i) - 1;
 		}
 		i++;
 	}
-	*strs[j] = '\0';
+	//*strs[j] = '\0';
 	strs[j + 1] = NULL;
 	return (strs);
 }
