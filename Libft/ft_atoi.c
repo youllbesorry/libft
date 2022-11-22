@@ -52,10 +52,3 @@ int	ft_atoi(const char *str)
 	}
 	return (nb * sign);
 }
-
-int	main(void)
-{
-	printf("%d", ft_atoi("-2147483649"));
-	printf("\n");
-	printf("%d", atoi("-2147483649"));
-}

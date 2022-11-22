@@ -14,6 +14,10 @@
 
 int	main(void)
 {
-	char	*strs[2] = {"oui|non"};
-	char	*sep = "|";
+	char	*str = "                                       oui                     non                                                                                                                                             ";
+	char	sep = ' ';
+
+	char **pute = ft_split(str, sep);
+	while (*pute)
+		printf("|%s| \n", *pute++);
 }

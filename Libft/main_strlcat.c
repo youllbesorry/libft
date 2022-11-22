@@ -6,30 +6,99 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:08:40 by bfaure            #+#    #+#             */
-/*   Updated: 2022/11/16 12:04:54 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2022/11/22 11:53:20 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include <unistd.h>
 #include "libft.h"
+#include <string.h>
 
-int	main(void)
+void	ft_print_result(int n)
+{
+	char c;
+
+	if (n >= 10)
+		ft_print_result(n / 10);
+	c = n % 10 + '0';
+	write (1, &c, 1);
+}
+
+int		main(int argc, const char *argv[])
 {
 	char	*dest;
-	char	src[50] = "test";
-	char	*dest1;
-	char	src1[50] = "test";
-	memset(dest, 0, 15);
-	memset(dest1, 0, 15);
-	memset(dest, 'r', 14);
-	memset(dest1, 'r', 14);
+	int		arg;
 
-	printf("dst1 = %s src1 = %s\n", dest, src1);
-	strlcat(dest, "lorem ipsum dolor sit amet", 5);
-	printf("dst1 = %s src1 = %s\n", dest, src1);
-	printf("j = %lu\n", strlcat(dest, "lorem ipsum dolor sit amet", 5));
-	printf("\n");
-	printf("dst = %s src = %s\n", dest1, src);
-	ft_strlcat(dest1, "lorem ipsum dolor sit amet", 5);
-	printf("dst = %s src = %s\n", dest1, src);
-	printf("j = %lu\n", ft_strlcat(dest1, "lorem ipsum dolor sit amet", 5));
+	alarm(5);
+	if (!(dest = (char *)malloc(sizeof(*dest) * 15)) || argc == 1)
+		return (0);
+	memset(dest, 0, 15);
+	memset(dest, 'r', 6);
+	if ((arg = atoi(argv[1])) == 1)
+	{
+		dest[11] = 'a';
+		ft_print_result(ft_strlcat(dest, "lorem", 15));
+		write(1, "\n", 1);
+		write(1, dest, 15);
+	}
+	else if (arg == 2)
+	{
+		ft_print_result(ft_strlcat(dest, "", 15));
+		write(1, "\n", 1);
+		write(1, dest, 15);
+	}
+	else if (arg == 3)
+	{
+		dest[0] = '\0';
+		dest[11] = 'a';
+		ft_print_result(ft_strlcat(dest, "lorem ipsum", 15));
+		write(1, "\n", 1);
+		write(1, dest, 15);
+	}
+	else if (arg == 4)
+	{
+		dest[14] = 'a';
+		ft_print_result(ft_strlcat(dest, "lorem ipsum dolor sit amet", 15));
+		write(1, "\n", 1);
+		write(1, dest, 15);
+	}
+	else if (arg == 5)
+	{
+		dest[10] = 'a';
+		ft_print_result(ft_strlcat(dest, "lorem ipsum dolor sit amet", 0));
+		write(1, "\n", 1);
+		write(1, dest, 15);
+	}
+	else if (arg == 6)
+	{
+		dest[10] = 'a';
+		ft_print_result(ft_strlcat(dest, "lorem ipsum dolor sit amet", 1));
+		write(1, "\n", 1);
+		write(1, dest, 15);
+	}
+	else if (arg == 7)
+	{
+		memset(dest, 'r', 15);
+		ft_print_result(ft_strlcat(dest, "lorem ipsum dolor sit amet", 5));
+		// ft_print_result(strlcat(dest, "lorem ipsum dolor sit amet", 5));
+		// printf (" i %zu", ft_strlcat(dest, "lorem ipsum dolor sit amet", 5));
+		write(1, "\n", 1);
+		write(1, dest, 15);
+	}
+	else if (arg == 8)
+	{
+		dest[10] = 'a';
+		ft_print_result(ft_strlcat(dest, "lorem ipsum dolor sit amet", 6));
+		write(1, "\n", 1);
+		write(1, dest, 15);
+	}
+	else if (arg == 9)
+	{
+		memset(dest, 'r', 14);
+		ft_print_result(ft_strlcat(dest, "lorem ipsum dolor sit amet", 15));
+		write(1, "\n", 1);
+		write(1, dest, 15);
+	}
+	return (0);
 }
