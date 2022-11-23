@@ -11,26 +11,33 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-size_t	tab_len(char const *s, char c)
+static size_t	tab_len(char const *s, char c, int n, size_t i)
 {
-	size_t	i;
 	size_t	j;
 
-	i = 0;
 	j = 0;
-	while (s[i] != '\0')
+	if (n == 0)
 	{
-		if (s[i] == c)
-			j++;
-		i++;
+		while (s[i] != '\0')
+		{
+			if (s[i] == c)
+				j++;
+			i++;
+		}
+		return (i - j);
 	}
-	return (i - j);
+	if (n == 1)
+	{
+		while (s[i] == c)
+			i++;
+		return (i);
+	}
+	return (0);
 }
 
-
-
-void	*ft_free(char **strs, size_t i)
+static void	*ft_free(char **strs, size_t i)
 {
 	size_t	j;
 
@@ -44,29 +51,44 @@ void	*ft_free(char **strs, size_t i)
 	return (NULL);
 }
 
-size_t	ft_pass_sep(char const *s, char c, int n, size_t i)
-{
-	size_t	j;
-
-	j = 0;
-	if (n == 0)
-	{
-		while (s[i] == c)
-			i++;
-		return (i);
-	}
-}
-
-char	**ft_alloc_2d_tab(char const *s, char c, char **strs, size_t len)
+static char	**ft_append(char const *s, char c, char **strs, size_t len)
 {
 	size_t	i;
 	size_t	j;
 	size_t	n;
 
-	i = ft_pass_sep(s, c, 0, 0);
+	i = tab_len(s, c, 1, 0);
+	n = 0;
+	j = 0;
+	while (s[i] != '\0' && j <= len)
+	{
+		if (s[i] != c)
+			strs[j][n++] = s[i];
+		else
+		{
+			strs[j][n] = '\0';
+			j++;
+			n = 0;
+			i = tab_len(s, c, 1, i) - 1;
+		}
+		i++;
+	}
+	if (j <= 1)
+			j++;
+	strs[j] = NULL;
+	return (strs);
+}
+
+static char	**ft_alloc_2d_tab(char const *s, char c, char **strs, size_t len)
+{
+	size_t	i;
+	size_t	j;
+	size_t	n;
+
+	i = tab_len(s, c, 1, 0);
 	j = 0;
 	n = 0;
-	strs = malloc(sizeof(*strs) * (len + 1));
+	strs = malloc(sizeof(char *) * (len + 1));
 	if (!strs)
 		return (NULL);
 	while (i != ft_strlen(s) + 1)
@@ -76,10 +98,10 @@ char	**ft_alloc_2d_tab(char const *s, char c, char **strs, size_t len)
 		else if (s[i] == c || s[i] == '\0')
 		{
 			strs[n++] = malloc(sizeof(char) * (j + 1));
-			if (!strs)
+			if (!strs[n - 1])
 				return (ft_free(strs, i));
 			j = 0;
-			i = ft_pass_sep(s, c, 0, i);
+			i = tab_len(s, c, 1, i);
 		}
 		i++;
 	}
@@ -88,33 +110,16 @@ char	**ft_alloc_2d_tab(char const *s, char c, char **strs, size_t len)
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	i;
 	size_t	len;
-	size_t	j;
-	size_t	n;
 	char	**strs;
 
-	len = tab_len(s, c) + 1;
 	strs = NULL;
+	len = tab_len(s, c, 0, 0) + 1;
 	strs = ft_alloc_2d_tab(s, c, strs, len);
-	if (strs == NULL)
+	if (!strs)
 		return (NULL);
-	i = ft_pass_sep(s, c, 0, 0);
-	n = 0;
-	j = 0;
-	while (s[i] != '\0' && j != len)
-	{
-		if (s[i] != c)
-			strs[j][n++] = s[i];
-		else
-		{
-			strs[j++][n] = '\0';
-			n = 0;
-			i = ft_pass_sep(s, c, 0, i) - 1;
-		}
-		i++;
-	}
-	//*strs[j] = '\0';
-	strs[j + 1] = NULL;
+	if (c == '\0')
+		return (strs);
+	strs = ft_append(s, c, strs, len);
 	return (strs);
 }
