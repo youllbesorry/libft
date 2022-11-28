@@ -91,7 +91,7 @@ int		main(int argc, const char *argv[])
 	}
 	else if (arg == 5)
 	{
-		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'z')))
+		if (!(tabstr = ft_split("tripouille", '\0')))
 			ft_print_result("NULL");
 		else
 		{

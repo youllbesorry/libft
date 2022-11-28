@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 12:28:51 by bfaure            #+#    #+#             */
-/*   Updated: 2022/11/28 12:35:17 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2022/11/28 13:34:42 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	else if (n < 0)
 	{
-		write(1, "-", 1);
+		write(fd, "-", 1);
 		ft_putnbr_fd(n *= -1, fd);
 	}
 	else if (n > 9)

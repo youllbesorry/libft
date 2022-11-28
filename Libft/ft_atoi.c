@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	ft_overflow(int sign, long long int nb, const char *str)
+static int	ft_overflow(int sign, long long int nb, const char *str)
 {
 	if (nb != (nb * 10 + *str - '0') / 10)
 	{

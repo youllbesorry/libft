@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:50:15 by bfaure            #+#    #+#             */
-/*   Updated: 2022/11/28 12:33:05 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2022/11/28 17:33:15 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,7 @@
 # define LIBFT_H
 
 # include <stdlib.h>
-# include <string.h>
-# include <stdio.h>
-# include <ctype.h>
 # include <unistd.h>
-//# include <bsd/string.h>
 
 size_t	ft_strlen(const char *str);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);

@@ -24,28 +24,25 @@ static	size_t	ft_cont_word(char const *s, char c)
 		i++;
 		if (s[i] == c && s[i - 1] != c)
 			n++;
-		if (s[i] == '\0' && s[i - 1] != c)
+		if (s[i] == '\0' && s[i - 1] != c && c != '\0')
 			n++;
 	}
 	return (n + 1);
 }
 
-static	size_t	ft_len_word(char const	*s, char c, size_t j, size_t n)
+static	size_t	ft_len_word(char const	*s, char c, size_t i, size_t n)
 {
-	size_t	i;
-
-	i = 0;
 	if (n == 0)
 	{
-		while (s[j] != c && s[j] != '\0')
-			j++;
-		return (j);
+		while (s[i] != c && s[i] != '\0')
+			i++;
+		return (i);
 	}
 	if (n == 1)
 	{
-		while (s[j] == c)
-			j++;
-		return (j);
+		while (s[i] == c && c != '\0')
+			i++;
+		return (i);
 	}
 	return (0);
 }
@@ -69,26 +66,26 @@ char	**ft_split(char const *s, char c)
 	char	**strs;
 	size_t	i;
 	size_t	nbword;
-	size_t	j;
-	size_t	k;
+	size_t	len;
+	size_t	start;
 
 	nbword = ft_cont_word(s, c);
 	strs = malloc((sizeof(char *)) * nbword);
 	if (!strs)
 		return (NULL);
-	j = 0;
+	len = 0;
 	i = 0;
-	k = 0;
-	while (nbword > i)
+	start = 0;
+	while (nbword > i + 1)
 	{
-		k = ft_len_word(s, c, j, 1);
-		j = ft_len_word(s, c, k, 0) - k;
-		strs[i] = ft_substr(s, k, j);
+		start = ft_len_word(s, c, len, 1);
+		len = ft_len_word(s, c, start, 0) - start;
+		strs[i] = ft_substr(s, start, len);
 		if (strs[i] == NULL)
 			return (ft_free(strs));
 		i++;
-		j += k;
+		len += start;
 	}
-	strs[i - 1] = NULL;
+	strs[i] = NULL;
 	return (strs);
 }

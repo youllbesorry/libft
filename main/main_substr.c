@@ -14,8 +14,8 @@
 
 int	main(void)
 {
-	char	str1[] = "01234";
+	char	str1[] = "tripouille";
 
 	printf("This is str1 befor ft_substr : %s \n", str1);
-	printf("This is the result of ft_substr with str1 : %s \n", ft_substr(str1, 10, 10));
+	printf("This is the result of ft_substr with str1 : %s \n", ft_substr(str1, 0, 42000));
 }
