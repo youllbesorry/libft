@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:48:34 by bfaure            #+#    #+#             */
-/*   Updated: 2022/11/25 19:12:18 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2022/11/28 11:05:03 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static char	*ft_set(char *str, size_t len)
 	return (str);
 }
 
-static char	*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*str;
 	size_t	len;
@@ -69,13 +69,4 @@ static char	*ft_itoa(int n)
 	}
 	str[i] = '\0';
 	return (str);
-}
-
-int	main(void)
-{
-	char	*str;
-
-	str = ft_itoa(-2147483648);
-	printf ("str = %s\n", str);
-	free(str);
 }

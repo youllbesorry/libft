@@ -6,7 +6,7 @@
 #    By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 15:23:52 by bfaure            #+#    #+#              #
-#    Updated: 2022/11/22 17:01:13 by bfaure           ###   ########lyon.fr    #
+#    Updated: 2022/11/28 12:32:53 by bfaure           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,13 @@ SRCS = ft_isalpha.c\
 	ft_strjoin.c\
 	ft_strtrim.c\
 	ft_split.c\
+	ft_itoa.c\
+	ft_strmapi.c\
+	ft_striteri.c\
+	ft_putchar_fd.c\
+	ft_putstr_fd.c\
+	ft_putendl_fd.c\
+	ft_putnbr_fd.c\
 
 HEADER = libft.h
 
