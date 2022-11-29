@@ -6,7 +6,7 @@
 #    By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 15:23:52 by bfaure            #+#    #+#              #
-#    Updated: 2022/11/28 12:32:53 by bfaure           ###   ########lyon.fr    #
+#    Updated: 2022/11/29 12:22:53 by bfaure           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,14 +59,15 @@ all: $(NAME)
 	$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $@
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	$(AR) rcs $(NAME) $(OBJS)
 	
 clean:
-	rm -f $(OBJS)
+	$(RM) $(OBJS)
 
 fclean:	clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
-re:	fclean all
+re:	fclean
+	$(MAKE) all
 
 .PHONY: all clean fclean re
