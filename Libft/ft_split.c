@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-static	size_t	ft_cont_word(char const *s, char c)
+static	ssize_t	ft_cont_word(char const *s, char c)
 {
-	size_t	i;
-	size_t	n;
+	ssize_t	i;
+	ssize_t	n;
 
 	i = 0;
 	n = 0;
@@ -47,7 +47,7 @@ static	size_t	ft_len_word(char const	*s, char c, size_t i, size_t n)
 	return (0);
 }
 
-static	char	**ft_free(char **strs)
+static void	ft_free(char **strs)
 {
 	size_t	i;
 
@@ -58,21 +58,15 @@ static	char	**ft_free(char **strs)
 		i++;
 	}
 	free(strs);
-	return (NULL);
 }
 
-char	**ft_split(char const *s, char c)
+static ssize_t	ft_split_iteration(char const *s, char c, char **strs,
+	ssize_t nbword)
 {
-	char	**strs;
-	size_t	i;
-	size_t	nbword;
+	ssize_t	i;
 	size_t	len;
 	size_t	start;
 
-	nbword = ft_cont_word(s, c);
-	strs = malloc((sizeof(char *)) * nbword);
-	if (!strs)
-		return (NULL);
 	len = 0;
 	i = 0;
 	start = 0;
@@ -82,10 +76,28 @@ char	**ft_split(char const *s, char c)
 		len = ft_len_word(s, c, start, 0) - start;
 		strs[i] = ft_substr(s, start, len);
 		if (strs[i] == NULL)
-			return (ft_free(strs));
+			return (ft_free(strs), -1);
 		i++;
 		len += start;
 	}
+	return (i);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**strs;
+	ssize_t	nbword;
+	ssize_t	i;
+
+	if (s == NULL)
+		return (NULL);
+	nbword = ft_cont_word(s, c);
+	strs = malloc((sizeof(char *)) * nbword);
+	if (!strs)
+		return (NULL);
+	i = ft_split_iteration(s, c, strs, nbword);
+	if (i == -1)
+		return (NULL);
 	strs[i] = NULL;
 	return (strs);
 }

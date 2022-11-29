@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 10:23:49 by bfaure            #+#    #+#             */
-/*   Updated: 2022/11/14 10:31:43 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2022/11/29 17:29:52 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ int	ft_tolower(int c)
 	if (c >= 'A' && c <= 'Z')
 		d = c + 32;
 	else
-		return (c);
-	if (!(d >= 'a' && d <= 'z'))
 		return (c);
 	return (d);
 }

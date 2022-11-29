@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 18:52:46 by bfaure            #+#    #+#             */
-/*   Updated: 2022/11/11 16:58:11 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2022/11/29 17:27:41 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memset(void *b, int c, size_t len)
 	i = 0;
 	while (i != len)
 	{
-		((unsigned char *)b)[i] = c;
+		((unsigned char *)b)[i] = ((unsigned char)c);
 		i++;
 	}
 	return (b);

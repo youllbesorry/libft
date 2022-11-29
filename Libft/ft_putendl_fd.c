@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 12:23:23 by bfaure            #+#    #+#             */
-/*   Updated: 2022/11/28 12:25:48 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2022/11/29 17:26:56 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,8 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	size_t	i;
-
 	if (!s)
 		return ;
-	i = 0;
-	while (s[i])
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
+	write(fd, s, ft_strlen(s));
 	write(fd, "\n", 1);
 }

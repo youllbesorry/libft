@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:48:34 by bfaure            #+#    #+#             */
-/*   Updated: 2022/11/28 11:05:03 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2022/11/29 17:21:25 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,6 @@ static size_t	ft_intlen(long nb)
 	return (len);
 }
 
-static char	*ft_set(char *str, size_t len)
-{
-	size_t	i;
-
-	i = 0;
-	while (i != len)
-	{
-		str[i] = '0';
-		i++;
-	}
-	return (str);
-}
-
 char	*ft_itoa(int n)
 {
 	char	*str;
@@ -55,7 +42,8 @@ char	*ft_itoa(int n)
 	str = malloc(sizeof(char) * len + 1);
 	if (!str)
 		return (NULL);
-	str = ft_set(str, len);
+	if (nb == 0)
+		str[0] = '0';
 	if (nb < 0)
 	{
 		nb *= -1;
@@ -63,9 +51,8 @@ char	*ft_itoa(int n)
 	}
 	while (nb > 0)
 	{
-		str[len - 1] = nb % 10 + '0';
+		str[(len--) - 1] = nb % 10 + '0';
 		nb /= 10;
-		len--;
 	}
 	str[i] = '\0';
 	return (str);

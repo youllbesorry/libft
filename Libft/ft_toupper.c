@@ -21,7 +21,5 @@ int	ft_toupper(int c)
 		d = c - 32;
 	else
 		return (c);
-	if (!(d >= 'A' && d <= 'Z'))
-		return (c);
 	return (d);
 }
