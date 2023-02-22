@@ -6,7 +6,7 @@
 #    By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 15:23:52 by bfaure            #+#    #+#              #
-#    Updated: 2022/11/29 12:22:53 by bfaure           ###   ########lyon.fr    #
+#    Updated: 2023/02/21 16:24:29 by bfaure           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRCS = ft_isalpha.c\
 	ft_memcpy.c\
 	ft_strchr.c\
 	ft_strlen.c\
+	ft_strlen_line.c\
 	ft_strrchr.c\
 	ft_bzero.c\
 	ft_isascii.c\
@@ -46,28 +47,51 @@ SRCS = ft_isalpha.c\
 	ft_putstr_fd.c\
 	ft_putendl_fd.c\
 	ft_putnbr_fd.c\
+	ft_printf.c \
+	ft_putchar_printf.c\
+	ft_putnbr_base_printf.c\
+	ft_putnbr_printf.c\
+	ft_putptr_printf.c\
+	ft_putstr_printf.c\
+	get_next_line.c\
+	get_next_line_utils.c\
 
-HEADER = libft.h
+DIR_SRCS = src/
 
-CFLAGS = -Wall -Wextra -Werror
+DIR_OBJS = .objs/
 
-OBJS = $(SRCS:.c=.o)
+DIR_HEAD = headers/
 
-all: $(NAME)
+OBJS = ${SRCS:%.c=${DIR_OBJS}%.o}
 
-%.o: %.c Makefile $(HEADER)
-	$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $@
+CC = cc
 
-$(NAME): $(OBJS)
-	$(AR) rcs $(NAME) $(OBJS)
-	
-clean:
-	$(RM) $(OBJS)
+MKDIR = mkdir -p
 
-fclean:	clean
-	$(RM) $(NAME)
+HEADERS	= 	libft.h\
+			get_next_line.h\
+			ft_printf.h\
 
-re:	fclean
-	$(MAKE) all
+CFLAGS	= -Wall -Wextra -Werror -g3
 
-.PHONY: all clean fclean re
+all :		${NAME}
+
+clean :
+			rm -rf ${DIR_OBJS}
+
+fclean :	clean
+			rm -rf ${NAME}
+
+re :		fclean
+			$(MAKE) all
+
+${DIR_OBJS}%.o: 	${DIR_SRCS}%.c	${addprefix ${DIR_HEAD}, ${HEADERS}} | ${DIR_OBJS}
+					${CC} ${CFLAGS} -I ${DIR_HEAD} -c $< -o $@
+
+${DIR_OBJS}		:
+					${MKDIR} ${DIR_OBJS}
+
+${NAME} :	${OBJS}
+			ar -rc ${NAME} ${OBJS}
+
+.PHONY:		all clean fclean re
